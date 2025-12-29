@@ -1,7 +1,7 @@
 **Step 1 onto_label.py：转换本体为图**
 读取src中的本体文件.ttl，输出graph形式json文件，作为提取标签与后续计算的基础：onto_graph.json
 
-**Step 2 label_generator.py：标签生成器（此步骤独立） **
+**Step 2 label_generator.py：标签生成器（此步骤独立）**
 读取onto_graph.json，输出两种类型的标签xml对接Label Studio平台：no_level & two_level
 
 **Step 3 label_ner.py: 拟合标签数据为实例节点**
