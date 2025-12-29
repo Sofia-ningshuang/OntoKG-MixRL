@@ -1,0 +1,699 @@
+@prefix : <http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/> .
+
+<http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1> rdf:type owl:Ontology ;
+                                                                         rdfs:comment "Ontology version 1.0 for construction quality traceback reasoning."@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/daMayCauses
+:daMayCauses rdf:type owl:ObjectProperty ;
+             rdfs:domain :QualityDamage ;
+             rdfs:range :QualityAccident .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/dfMayCauses
+:dfMayCauses rdf:type owl:ObjectProperty ;
+             rdfs:domain :QualityDefect ;
+             rdfs:range :QualityAccident ,
+                        :QualityDamage .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/diMayCauses
+:diMayCauses rdf:type owl:ObjectProperty ;
+             rdfs:domain :QualityDeviation ;
+             rdfs:range :QualityDefect .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/hcAffectsTask
+:hcAffectsTask rdf:type owl:ObjectProperty ;
+               rdfs:domain :HazardCondition ;
+               rdfs:range :ConstructionTask .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/hcMayCauses
+:hcMayCauses rdf:type owl:ObjectProperty ;
+             rdfs:domain :HazardCondition ;
+             rdfs:range :QualityAccident ,
+                        :QualityDamage ,
+                        :QualityDefect ,
+                        :QualityDeviation ,
+                        :TriggerEvent .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/qrMayCauses
+:qrMayCauses rdf:type owl:ObjectProperty ;
+             rdfs:domain :QualityRisk ;
+             rdfs:range :HazardCondition ,
+                        :TriggerEvent .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/qrMayDirectlyCauses
+:qrMayDirectlyCauses rdf:type owl:ObjectProperty ;
+                     rdfs:domain :QualityRisk ;
+                     rdfs:range :QualityAccident ,
+                                :QualityDamage ,
+                                :QualityDefect ,
+                                :QualityDeviation .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/teAffectsTask
+:teAffectsTask rdf:type owl:ObjectProperty ;
+               rdfs:domain :TriggerEvent ;
+               rdfs:range :ConstructionTask .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/teMayCauses
+:teMayCauses rdf:type owl:ObjectProperty ;
+             rdfs:domain :TriggerEvent ;
+             rdfs:range :QualityAccident ,
+                        :QualityDamage ,
+                        :QualityDefect ,
+                        :QualityDeviation .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/cageDiameterDeviation
+:cageDiameterDeviation rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :SettingUpReinforcementCage .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/cageLengthDeviation
+:cageLengthDeviation rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :SettingUpReinforcementCage .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/concreteSampleResult
+:concreteSampleResult rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :PouringConcrete .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/concreteSlump
+:concreteSlump rdf:type owl:DatatypeProperty ;
+               rdfs:domain :PouringConcrete .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/horizontalPositionDeviation
+:horizontalPositionDeviation rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :PositioningCalibration .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/mainReinforcementSpacing
+:mainReinforcementSpacing rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :SettingUpReinforcementCage .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/measuredPosition
+:measuredPosition rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :PositioningDeviation .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/measurementDate
+:measurementDate rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :MeasuringDrill .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/operationalDeviation
+:operationalDeviation rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :ConstructionTask .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/perpendicularityDeviation
+:perpendicularityDeviation rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :MeasuringDrill .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/pileDepthDeviation
+:pileDepthDeviation rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :MeasuringDrill .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/pileIntegrityDeviation
+:pileIntegrityDeviation rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :PileFormation .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/pileSampleResult
+:pileSampleResult rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :HazardCondition .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/pileTopElevationDeviation
+:pileTopElevationDeviation rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :PileFormation .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/steelBarSampleResult
+:steelBarSampleResult rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :SettingUpReinforcementCage .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/stirrupSpacing
+:stirrupSpacing rdf:type owl:DatatypeProperty ;
+                rdfs:domain :SettingUpReinforcementCage .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/verticalAlignmentDeviation
+:verticalAlignmentDeviation rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :PositioningCalibration .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/AccidentConsequence
+:AccidentConsequence rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/AppearanceDefect
+:AppearanceDefect rdf:type owl:Class ;
+                  rdfs:subClassOf :QualityDefect .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/BuildingDamage
+:BuildingDamage rdf:type owl:Class ;
+                rdfs:subClassOf :AccidentConsequence .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/ChaoticManagementProcess
+:ChaoticManagementProcess rdf:type owl:Class ;
+                          rdfs:subClassOf :ManagementRisk .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/CityAdministrationDept
+:CityAdministrationDept rdf:type owl:Class ;
+                        rdfs:subClassOf :SupervisionRelatedParties .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/Client
+:Client rdf:type owl:Class ;
+        rdfs:subClassOf :ConstructionRelatedParties .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/ComplexGeologicalEnvironment
+:ComplexGeologicalEnvironment rdf:type owl:Class ;
+                              rdfs:subClassOf :EnvironmentRiskFactor .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/ConstructionRelatedParties
+:ConstructionRelatedParties rdf:type owl:Class ;
+                            rdfs:subClassOf :ResponsibleEntity .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/ConstructionTask
+:ConstructionTask rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/ConsultantUnit
+:ConsultantUnit rdf:type owl:Class ;
+                rdfs:subClassOf :TechnicalServiceRelatedParties .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/DesignUnit
+:DesignUnit rdf:type owl:Class ;
+            rdfs:subClassOf :TechnicalServiceRelatedParties .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/DimensionalDeviation
+:DimensionalDeviation rdf:type owl:Class ;
+                      rdfs:subClassOf :QualityDefect .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/DisposalMeasure
+:DisposalMeasure rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/Drilling
+:Drilling rdf:type owl:Class ;
+          rdfs:subClassOf :PileConstruction .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/EconomicLoss
+:EconomicLoss rdf:type owl:Class ;
+              rdfs:subClassOf :AccidentConsequence .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/EmergencyManagementDept
+:EmergencyManagementDept rdf:type owl:Class ;
+                         rdfs:subClassOf :SupervisionRelatedParties .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/EmergencyResponse
+:EmergencyResponse rdf:type owl:Class ;
+                   rdfs:subClassOf :DisposalMeasure .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/EnvironmentRiskFactor
+:EnvironmentRiskFactor rdf:type owl:Class ;
+                       rdfs:subClassOf :QualityRisk .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/EnvironmentStatus
+:EnvironmentStatus rdf:type owl:Class ;
+                   rdfs:subClassOf :HazardCondition .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/EnvironmentalDisturbance
+:EnvironmentalDisturbance rdf:type owl:Class ;
+                          rdfs:subClassOf :TriggerEvent .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/EnvironmentalImpact
+:EnvironmentalImpact rdf:type owl:Class ;
+                     rdfs:subClassOf :AccidentConsequence .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/EquipmentDamage
+:EquipmentDamage rdf:type owl:Class ;
+                 rdfs:subClassOf :AccidentConsequence .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/EquipmentMalfunction
+:EquipmentMalfunction rdf:type owl:Class ;
+                      rdfs:subClassOf :MachineRiskFactor .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/EquipmentSupplier
+:EquipmentSupplier rdf:type owl:Class ;
+                   rdfs:subClassOf :ConstructionRelatedParties .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/EquipmentTestingIssue
+:EquipmentTestingIssue rdf:type owl:Class ;
+                       rdfs:subClassOf :MachineRiskFactor .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/ExternalImpact
+:ExternalImpact rdf:type owl:Class ;
+                rdfs:subClassOf :TriggerEvent .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/ExternalImpactAndLoadAccident
+:ExternalImpactAndLoadAccident rdf:type owl:Class ;
+                               rdfs:subClassOf :QualityAccident .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/FacilityManagementFirm
+:FacilityManagementFirm rdf:type owl:Class ;
+                        rdfs:subClassOf :MaintenanceRelatedParites .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/FireAndExplosionAccident
+:FireAndExplosionAccident rdf:type owl:Class ;
+                          rdfs:subClassOf :QualityAccident .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/FoundationAccident
+:FoundationAccident rdf:type owl:Class ;
+                    rdfs:subClassOf :QualityAccident .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/FunctionalAccident
+:FunctionalAccident rdf:type owl:Class ;
+                    rdfs:subClassOf :QualityAccident .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/FunctionalDefect
+:FunctionalDefect rdf:type owl:Class ;
+                  rdfs:subClassOf :QualityDefect .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/FunctionalFailure
+:FunctionalFailure rdf:type owl:Class ;
+                   rdfs:subClassOf :QualityDamage .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/GeneralContractor
+:GeneralContractor rdf:type owl:Class ;
+                   rdfs:subClassOf :ConstructionRelatedParties .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/HazardCondition
+:HazardCondition rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/HiddenDefect
+:HiddenDefect rdf:type owl:Class ;
+              rdfs:subClassOf :QualityDefect .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/HousingAndUrbanRuralDevelopmentDept
+:HousingAndUrbanRuralDevelopmentDept rdf:type owl:Class ;
+                                     rdfs:subClassOf :SupervisionRelatedParties .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/HumanRiskFactor
+:HumanRiskFactor rdf:type owl:Class ;
+                 rdfs:subClassOf :QualityRisk .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/HumanStatus
+:HumanStatus rdf:type owl:Class ;
+             rdfs:subClassOf :HazardCondition .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/ImproperBehavior
+:ImproperBehavior rdf:type owl:Class ;
+                  rdfs:subClassOf :HumanRiskFactor .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/ImproperConstructionMethod
+:ImproperConstructionMethod rdf:type owl:Class ;
+                            rdfs:subClassOf :MethodRiskFactor .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/ImproperEquipmentUse
+:ImproperEquipmentUse rdf:type owl:Class ;
+                      rdfs:subClassOf :MachineRiskFactor .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/ImproperMaterialUse
+:ImproperMaterialUse rdf:type owl:Class ;
+                     rdfs:subClassOf :MaterialRiskFactor .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/ImproperStandardUse
+:ImproperStandardUse rdf:type owl:Class ;
+                     rdfs:subClassOf :MethodRiskFactor .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/InadequateManagementSystem
+:InadequateManagementSystem rdf:type owl:Class ;
+                            rdfs:subClassOf :ManagementRisk .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/InfluenceOfNaturalEnvironment
+:InfluenceOfNaturalEnvironment rdf:type owl:Class ;
+                               rdfs:subClassOf :EnvironmentRiskFactor .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/InspectionNegligence
+:InspectionNegligence rdf:type owl:Class ;
+                      rdfs:subClassOf :TriggerEvent .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/InsufficientCapability
+:InsufficientCapability rdf:type owl:Class ;
+                        rdfs:subClassOf :HumanRiskFactor .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/LackOfQualification
+:LackOfQualification rdf:type owl:Class ;
+                     rdfs:subClassOf :HumanRiskFactor .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/LackOfSafetyProtection
+:LackOfSafetyProtection rdf:type owl:Class ;
+                        rdfs:subClassOf :MachineRiskFactor .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/MachineRiskFactor
+:MachineRiskFactor rdf:type owl:Class ;
+                   rdfs:subClassOf :QualityRisk .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/MachineryStatus
+:MachineryStatus rdf:type owl:Class ;
+                 rdfs:subClassOf :HazardCondition .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/MaintenanceRelatedParites
+:MaintenanceRelatedParites rdf:type owl:Class ;
+                           rdfs:subClassOf :ResponsibleEntity .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/ManagementImprovement
+:ManagementImprovement rdf:type owl:Class ;
+                       rdfs:subClassOf :DisposalMeasure .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/ManagementRisk
+:ManagementRisk rdf:type owl:Class ;
+                rdfs:subClassOf :QualityRisk .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/ManagementStatus
+:ManagementStatus rdf:type owl:Class ;
+                  rdfs:subClassOf :HazardCondition .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/MaterialDegradation
+:MaterialDegradation rdf:type owl:Class ;
+                     rdfs:subClassOf :QualityDamage .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/MaterialRiskFactor
+:MaterialRiskFactor rdf:type owl:Class ;
+                    rdfs:subClassOf :QualityRisk .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/MaterialStatus
+:MaterialStatus rdf:type owl:Class ;
+                rdfs:subClassOf :HazardCondition .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/MaterialSupplier
+:MaterialSupplier rdf:type owl:Class ;
+                  rdfs:subClassOf :ConstructionRelatedParties .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/MeasuringDrill
+:MeasuringDrill rdf:type owl:Class ;
+                rdfs:subClassOf :PileConstruction .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/MethodRiskFactor
+:MethodRiskFactor rdf:type owl:Class ;
+                  rdfs:subClassOf :QualityRisk .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/MethodStatus
+:MethodStatus rdf:type owl:Class ;
+              rdfs:subClassOf :HazardCondition .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/MismanagementAccident
+:MismanagementAccident rdf:type owl:Class ;
+                       rdfs:subClassOf :QualityAccident .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/NaturalDisasterAccident
+:NaturalDisasterAccident rdf:type owl:Class ;
+                         rdfs:subClassOf :QualityAccident .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/NaturalResourcesDept
+:NaturalResourcesDept rdf:type owl:Class ;
+                      rdfs:subClassOf :SupervisionRelatedParties .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/OperationalEnvironmentMismatch
+:OperationalEnvironmentMismatch rdf:type owl:Class ;
+                                rdfs:subClassOf :EnvironmentRiskFactor .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/OperationalError
+:OperationalError rdf:type owl:Class ;
+                  rdfs:subClassOf :TriggerEvent .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/Operator
+:Operator rdf:type owl:Class ;
+          rdfs:subClassOf :MaintenanceRelatedParites .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/PersonnelCasualty
+:PersonnelCasualty rdf:type owl:Class ;
+                   rdfs:subClassOf :AccidentConsequence .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/PileConstruction
+:PileConstruction rdf:type owl:Class ;
+                  rdfs:subClassOf :ConstructionTask .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/PileFormation
+:PileFormation rdf:type owl:Class ;
+               rdfs:subClassOf :PileConstruction .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/PileInspection
+:PileInspection rdf:type owl:Class ;
+                rdfs:subClassOf :PileConstruction .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/PoorWorkingEnvironment
+:PoorWorkingEnvironment rdf:type owl:Class ;
+                        rdfs:subClassOf :EnvironmentRiskFactor .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/PositioningCalibration
+:PositioningCalibration rdf:type owl:Class ;
+                        rdfs:subClassOf :PileConstruction .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/PositioningDeviation
+:PositioningDeviation rdf:type owl:Class ;
+                      rdfs:subClassOf :QualityDefect .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/PouringConcrete
+:PouringConcrete rdf:type owl:Class ;
+                 rdfs:subClassOf :PileConstruction .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/ProcessAnomaly
+:ProcessAnomaly rdf:type owl:Class ;
+                rdfs:subClassOf :TriggerEvent .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/ProcessDesignDefect
+:ProcessDesignDefect rdf:type owl:Class ;
+                     rdfs:subClassOf :MethodRiskFactor .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/PropertyOwner
+:PropertyOwner rdf:type owl:Class ;
+               rdfs:subClassOf :MaintenanceRelatedParites .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/ProtectionTubeInsertion
+:ProtectionTubeInsertion rdf:type owl:Class ;
+                         rdfs:subClassOf :PileConstruction .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/QualityAccident
+:QualityAccident rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/QualityDamage
+:QualityDamage rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/QualityDefect
+:QualityDefect rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/QualityDeviation
+:QualityDeviation rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/QualityRisk
+:QualityRisk rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/ResponsibleEntity
+:ResponsibleEntity rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/SettingUpCatheter
+:SettingUpCatheter rdf:type owl:Class ;
+                   rdfs:subClassOf :PileConstruction .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/SettingUpReinforcementCage
+:SettingUpReinforcementCage rdf:type owl:Class ;
+                            rdfs:subClassOf :PileConstruction .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/SiteManagementNegligence
+:SiteManagementNegligence rdf:type owl:Class ;
+                          rdfs:subClassOf :ManagementRisk .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/SocialImpact
+:SocialImpact rdf:type owl:Class ;
+              rdfs:subClassOf :AccidentConsequence .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/StrengthDeficiency
+:StrengthDeficiency rdf:type owl:Class ;
+                    rdfs:subClassOf :QualityDefect .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/StructuralDamage
+:StructuralDamage rdf:type owl:Class ;
+                  rdfs:subClassOf :QualityDamage .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/StructuralSafetyAccident
+:StructuralSafetyAccident rdf:type owl:Class ;
+                          rdfs:subClassOf :QualityAccident .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/Subcontractor
+:Subcontractor rdf:type owl:Class ;
+               rdfs:subClassOf :ConstructionRelatedParties .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/SupervisionRelatedParties
+:SupervisionRelatedParties rdf:type owl:Class ;
+                           rdfs:subClassOf :ResponsibleEntity .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/SupervisionUnit
+:SupervisionUnit rdf:type owl:Class ;
+                 rdfs:subClassOf :TechnicalServiceRelatedParties .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/SurfaceDamage
+:SurfaceDamage rdf:type owl:Class ;
+               rdfs:subClassOf :QualityDamage .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/SurveyingUnit
+:SurveyingUnit rdf:type owl:Class ;
+               rdfs:subClassOf :TechnicalServiceRelatedParties .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/TechnicalRectification
+:TechnicalRectification rdf:type owl:Class ;
+                        rdfs:subClassOf :DisposalMeasure .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/TechnicalSchemeDefect
+:TechnicalSchemeDefect rdf:type owl:Class ;
+                       rdfs:subClassOf :MethodRiskFactor .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/TechnicalServiceRelatedParties
+:TechnicalServiceRelatedParties rdf:type owl:Class ;
+                                rdfs:subClassOf :ResponsibleEntity .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/TemporaryFacilityAndOperationAccident
+:TemporaryFacilityAndOperationAccident rdf:type owl:Class ;
+                                       rdfs:subClassOf :QualityAccident .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/TestingAgency
+:TestingAgency rdf:type owl:Class ;
+               rdfs:subClassOf :TechnicalServiceRelatedParties .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/TriggerEvent
+:TriggerEvent rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/UnqualifiedMaterialQuality
+:UnqualifiedMaterialQuality rdf:type owl:Class ;
+                            rdfs:subClassOf :MaterialRiskFactor .
+
+
+###  http://www.semanticweb.org/sofia/ontologies/2025/9/cqtr-ongtology-1.1/WeakQualityAwareness
+:WeakQualityAwareness rdf:type owl:Class ;
+                      rdfs:subClassOf :HumanRiskFactor .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
