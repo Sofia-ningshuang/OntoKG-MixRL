@@ -94,7 +94,16 @@ def load_graph_for_qlearning(json_file='ontology_graph.json', weight_rule_file='
     # build directed nx graph
     G = json_graph.node_link_graph(graph_data, directed=True)
 
+    # Debug: print weight mapping
+    print(f"\n=== Weight Mapping from {weight_rule_file} ===")
+    if weight_map:
+        for key, val in weight_map.items():
+            print(f"  {key} -> {val}")
+    else:
+        print("  No weight mappings found!")
+    
     # assign weights
+    weight_distribution = {}
     for u, v, data in G.edges(data=True):
         w = get_edge_weight(data, weight_map)
         # if the source node is labeled 'Instance' (generic), set weight 0
@@ -102,6 +111,13 @@ def load_graph_for_qlearning(json_file='ontology_graph.json', weight_rule_file='
         if u_label == 'Instance':
             w = 0.0
         G[u][v]['weight'] = float(w)
+        
+        # Track weight distribution
+        weight_distribution[w] = weight_distribution.get(w, 0) + 1
+    
+    print(f"\n=== Weight Distribution ===")
+    for w in sorted(weight_distribution.keys()):
+        print(f"  Weight {w}: {weight_distribution[w]} edges")
 
     # save adjusted graph json if requested
     if save_adjusted:
@@ -157,10 +173,8 @@ def print_graph_info(G):
         node_type = data.get('node_type', 'unknown')
         print(f"  {label} (type: {node_type})")
 
-    print(f"\nSample edges with weights (first 5):")
+    print(f"\nAll edges with weights:")
     for i, (u, v, data) in enumerate(G.edges(data=True)):
-        if i >= 5:
-            break
         u_label = G.nodes[u].get('label', u)
         v_label = G.nodes[v].get('label', v)
         weight = data.get('weight', 1)

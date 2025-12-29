@@ -232,34 +232,37 @@ if __name__ == "__main__":
     # Define evidence keywords based on the case study
     # These match the evidence chain provided by the user
     evidence_keywords = [
-        "OE3_InsufficientPre-jobHazardIdentification",  # Management hazard
-        "未检查并发现钢丝绳被预埋钢板钩住",           # Inspection failure
-        "不持有起重信号司索工证件",                   # Certification
-        "违规吊装起运材料",                           # Violation
-        "木方吊起时预埋钢板",                         # Trigger event
-        "预埋钢板一端瞬间被拉起",                     # Trigger event detail
-        "MechanicalAccident",                          # Accident type
-        "木方在反作用力影响下",                       # Mechanism
-        "撞到",                                       # Impact
-        "冯某国胸口",                                 # Victim
-        "HumanDamage",                                 # Human damage
-        "死亡",                                       # Fatality
-        "事故造成1人死亡",                            # Consequence
-        "Property",                                    # Property damage
-        "经济损失",                                   # Economic loss
-        "180万元",                                    # Loss amount
+        "TechnicalSchemeDefect",                       # Technical defect
+        "Blue Ridge Design",                           # Design company
+        "conflicting welding documents",               # Documentation issue
+        "HazardCondition",                             # Hazard condition
+        "Pre-Con",                                     # Contractor
+        "failed to comply with welding requirement",   # Non-compliance
+        "TriggerEvent",                                # Trigger event
+        "Crane hook",                                  # Equipment
+        "accidentally caught",                         # Accident mechanism
+        "lifting insert",                              # Component
+        "double tee #392",                            # Structural element
+        "operator continued lifting",                  # Operator action
+        "on-site warnings",                            # Warning ignored
+        "QualityDamage",                               # Quality damage
+        "Partial collapse",                            # Structural failure
+        "double tees #392/#393",                      # Failed elements
+        "fourth-floor support system",                 # Location
+        "QualityAccident",                             # Accident type
+        "4 workers killed",                            # Casualties
+        "collapse of precast double tees",            # Failure mode
     ]
     
     print("="*80)
     print("Evidence-Based Path Optimization")
     print("="*80)
     print("\nEvidence chain:")
-    print("  1. OE3_InsufficientPre-jobHazardIdentification (未检查钢丝绳隐患)")
-    print("  2. Certification (不持有起重信号司索工证件)")
-    print("  3. TriggerEvent (木方吊起时预埋钢板被拉起)")
-    print("  4. MechanicalAccident (木方撞到冯某国胸口)")
-    print("  5. HumanDamage (事故造成1人死亡)")
-    print("  6. Property (直接经济损失180万元)")
+    print("  1. TechnicalSchemeDefect (Blue Ridge Design provided conflicting welding documents)")
+    print("  2. HazardCondition (Pre-Con failed to comply with welding requirement)")
+    print("  3. TriggerEvent (Crane hook accidentally caught the lifting insert of double tee #392; operator continued lifting despite on-site warnings)")
+    print("  4. QualityDamage (Partial collapse of double tees #392/#393 from the fourth-floor support system)")
+    print("  5. QualityAccident (4 workers killed in the collapse of precast double tees)")
     print("="*80 + "\n")
     
     evidence_based_optimization(
